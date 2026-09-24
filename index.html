@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111827">
+  <title>המתחזה</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <section id="setupScreen" class="screen">
+      <div class="hero">
+        <div class="logo" aria-hidden="true">🎴</div>
+        <h1>המתחזה</h1>
+        <p>בכל המשחק יש מילה אחת משותפת — ורק קופסה אחת מכילה את המתחזה.</p>
+      </div>
+
+      <form id="setupForm" class="setup-card">
+        <label for="playerCount">מספר משתתפים</label>
+        <div class="stepper">
+          <button type="button" id="decreasePlayers" aria-label="הפחת משתתף">−</button>
+          <input id="playerCount" type="number" min="3" max="20" value="6" inputmode="numeric">
+          <button type="button" id="increasePlayers" aria-label="הוסף משתתף">+</button>
+        </div>
+
+        <label for="revealSeconds">זמן חשיפה (שניות)</label>
+        <input id="revealSeconds" type="number" min="1" max="30" value="5" inputmode="numeric">
+
+        <button class="primary" type="submit">התחל משחק</button>
+        <p class="hint">מומלץ להעביר את הטלפון מיד לאחר שהמילה נעלמת.</p>
+      </form>
+    </section>
+
+    <section id="gameScreen" class="screen hidden" aria-live="polite">
+      <header class="game-header">
+        <div>
+          <div class="eyebrow">המשחק הנוכחי</div>
+          <h2>בחרו קופסה אחת</h2>
+        </div>
+        <button id="newGameBtn" class="secondary small" type="button">משחק חדש</button>
+      </header>
+
+      <div class="status-row">
+        <span id="progressText">נבחרו 0 מתוך 6</span>
+        <span id="timerSetting">חשיפה: 5 שנ׳</span>
+      </div>
+
+      <div id="boxes" class="boxes" aria-label="קופסאות המשחק"></div>
+
+      <div class="instruction">
+        כל משתתף בוחר <strong>קופסה אחת בלבד</strong>.
+        אחרי הבחירה, העבירו את הטלפון למשתתף הבא.
+      </div>
+    </section>
+
+    <div id="revealOverlay" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="revealTitle">
+      <div class="reveal-card">
+        <div id="revealBadge" class="reveal-badge">המילה שלך</div>
+        <h2 id="revealTitle">גיטרה</h2>
+        <div class="countdown-ring" aria-hidden="true">
+          <span id="countdown">5</span>
+        </div>
+        <p id="revealHint">זכור/י את מה שראית.</p>
+      </div>
+    </div>
+
+    <div id="finishOverlay" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="finishTitle">
+      <div class="reveal-card">
+        <div class="reveal-badge">המשחק מוכן</div>
+        <h2 id="finishTitle">כל המשתתפים בחרו</h2>
+        <p>עכשיו מתחילים לשחק ולנסות למצוא את המתחזה.</p>
+        <button id="playAgainBtn" class="primary" type="button">משחק חדש</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="words-he.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
