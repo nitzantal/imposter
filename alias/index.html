@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#4f46e5">
+  <title>אליאס</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <section id="setupScreen" class="screen"></section>
+    <section id="readyScreen" class="screen hidden"></section>
+    <section id="playScreen" class="screen hidden"></section>
+    <section id="summaryScreen" class="screen hidden"></section>
+    <section id="endScreen" class="screen hidden"></section>
+    <section id="wordsScreen" class="screen hidden"></section>
+  </main>
+  <div id="toast" class="toast hidden" role="status"></div>
+
+  <script src="words-alias-he.js"></script>
+  <!-- לטאבו בעתיד: <script src="words-taboo-he.js"></script> -->
+  <script src="storage.js"></script>
+  <script src="settings.js"></script>
+  <script src="wordbank.js"></script>
+  <script src="modes.js"></script>
+  <script src="engine.js"></script>
+  <script src="ui.js"></script>
+</body>
+</html>
